@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--数据加载默认页码-->
+    <integer name="default_page">1</integer>
+    <!--程序包名-->
+    <string name="app_package">com.xiaozhu.library</string>
+    <!--文件夹名称-->
+    <string name="file_path">@string/app_name</string>
+    <!--微信KEY-->
+    <string name="wx_app_id"></string>
+    <string name="wx_app_key"></string>
+    <!--友盟配置信息-->
+    <string name="um_app_key">5a38c6e3f29d984672000039</string>
+    <string name="um_channel_id">@string/app_name</string>
+    <!--数据库-->
+    <string name="database_name">bayi.db</string>
+    <integer name="database_version">1</integer>
+</resources>

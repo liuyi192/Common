@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_progress_bg"
+        android:gravity="center_horizontal"
+        android:minWidth="@dimen/DIMEN_SIZE_300DP"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/loadingAnim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/download_anim" />
+
+        <com.xiaozhu.library.widget.custom.LineProgressBar
+            android:id="@+id/progress"
+            android:layout_width="@dimen/DIMEN_SIZE_180DP"
+            android:layout_height="@dimen/DIMEN_SIZE_12DP"
+            android:layout_marginTop="@dimen/DIMEN_SIZE_10DP"
+            app:isShowDesc="false"
+            app:lineBorderWidth="@dimen/DIMEN_SIZE_1DP"
+            app:lineProgressColor="@color/common_color"
+            app:progressRadius="@dimen/DIMEN_SIZE_6DP" />
+
+        <TextView
+            android:id="@+id/tvDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/DIMEN_SIZE_10DP"
+            android:text="@string/download_file_loading"
+            android:textColor="@color/white"
+            android:textSize="@dimen/DIMEN_SIZE_16DP" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

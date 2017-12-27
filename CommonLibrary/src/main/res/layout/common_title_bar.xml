@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/title_bar_color"
+    android:minHeight="@dimen/title_bar_height"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/app_name"
+        android:textColor="@color/title_bar_text"
+        android:textSize="@dimen/DIMEN_SIZE_18DP" />
+
+    <ImageView
+        android:id="@+id/btnLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@drawable/common_tab_item_click"
+        android:minHeight="@dimen/title_bar_height"
+        android:minWidth="@dimen/title_bar_height"
+        android:scaleType="center"
+        android:src="@mipmap/icon_back"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/lineRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:minHeight="@dimen/title_bar_height"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnTvRight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/common_tab_item_click"
+            android:gravity="center"
+            android:minWidth="@dimen/title_bar_height"
+            android:padding="@dimen/DIMEN_SIZE_6DP"
+            android:text="@string/app_name"
+            android:textColor="@color/title_bar_text"
+            android:textSize="@dimen/DIMEN_SIZE_14DP"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/btnIvRight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/common_tab_item_click"
+            android:minWidth="@dimen/title_bar_height"
+            android:scaleType="center"
+            android:visibility="gone" />
+    </LinearLayout>
+</RelativeLayout>

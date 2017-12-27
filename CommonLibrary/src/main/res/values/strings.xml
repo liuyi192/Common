@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">小烛工具</string>
+
+    <string name="loading_data">数据加载中...</string>
+    <string name="data_empty">数据为空！</string>
+    <string name="net_error">网络连接失败，请先设置网络！</string>
+
+    <string name="msg_num_length">字数超限，无法继续输入！</string>
+    <string name="no_input_emoji">不支持输入表情字符</string>
+
+    <string name="download_file_loading">文件下载中...</string>
+    <string name="download_complete">下载完成！</string>
+    <string name="download_fail">下载失败!</string>
+
+    <!--错误提示-->
+    <string name="error_prompt">系统程序开小差了～～\n退出应用稍后再试试吧！</string>
+    <string name="error_prompt_btn">我知道了</string>
+</resources>

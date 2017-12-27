@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/window_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.xiaozhu.refresh.footer.ballpulse.BallPulseView
+            android:id="@+id/ballPulse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/DIMEN_SIZE_20DP"
+            android:src="@mipmap/net_error" />
+
+        <TextView
+            android:id="@+id/tvInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/DIMEN_SIZE_30DP"
+            android:layout_marginRight="@dimen/DIMEN_SIZE_30DP"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/DIMEN_SIZE_16DP" />
+
+        <TextView
+            android:id="@+id/btnClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/DIMEN_SIZE_6DP"
+            android:gravity="center"
+            android:minHeight="@dimen/DIMEN_SIZE_40DP"
+            android:minWidth="@dimen/DIMEN_SIZE_160DP"
+            android:textColor="@color/white"
+            android:textSize="@dimen/DIMEN_SIZE_18DP"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</LinearLayout>

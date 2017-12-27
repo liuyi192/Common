@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/common_dialog_bg"
+    android:gravity="center"
+    android:minWidth="@dimen/DIMEN_SIZE_300DP"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/DIMEN_SIZE_20DP"
+        android:scaleType="center"
+        android:src="@mipmap/icon_error" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/DIMEN_SIZE_20DP"
+        android:layout_marginLeft="@dimen/DIMEN_SIZE_20DP"
+        android:layout_marginRight="@dimen/DIMEN_SIZE_20DP"
+        android:gravity="center"
+        android:text="@string/error_prompt"
+        android:textColor="@color/black"
+        android:textSize="@dimen/DIMEN_SIZE_16DP" />
+
+    <include layout="@layout/common_line" />
+
+    <TextView
+        android:id="@+id/btnClose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_tab_item_click"
+        android:gravity="center"
+        android:minHeight="@dimen/DIMEN_SIZE_50DP"
+        android:text="@string/error_prompt_btn"
+        android:textColor="@color/common_color"
+        android:textSize="@dimen/DIMEN_SIZE_18DP" />
+
+
+</LinearLayout>
