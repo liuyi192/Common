@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.xiaozhu.library.widget.glideImage.GlideImageView
+        android:id="@+id/images"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        android:src="@mipmap/icon_error" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black_80"
+        android:padding="@dimen/DIMEN_SIZE_10DP"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/DIMEN_SIZE_16DP" />
+
+</RelativeLayout>

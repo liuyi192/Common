@@ -8,8 +8,13 @@
     <color name="line_color">@color/darkgray</color>
     <color name="dialog_bg">@color/white</color>
 
+    <!--指示器颜色-->
+    <color name="select_indicator_color">@color/common_color</color>
+    <color name="normal_indicator_color">@color/gray</color>
+
     <!--常用颜色值-->
     <color name="black_20">#20000000</color>
+    <color name="black_80">#80000000</color>
     <color name="white">#FFFFFF</color> <!--白色 -->
     <color name="ivory">#FFFFF0</color> <!--象牙色 -->
     <color name="light_yellow">#FFFFE0</color> <!--亮黄色 -->
