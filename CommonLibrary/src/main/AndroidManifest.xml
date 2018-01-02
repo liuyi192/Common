@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.xiaozhu.library">
-·
+    ·
     <application
         android:allowBackup="true"
         android:supportsRtl="true">
@@ -12,8 +12,7 @@
         <!--下载界面-->
         <activity
             android:name=".download.DownloadFileActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/customProgressDialog" />
-        <service android:name=".download.DownloadService"/>
+        <service android:name=".download.DownloadService" />
     </application>
 </manifest>
