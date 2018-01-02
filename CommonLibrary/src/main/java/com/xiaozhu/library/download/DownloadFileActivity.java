@@ -15,6 +15,7 @@ import com.xiaozhu.library.entity.EventBusEntity;
 import com.xiaozhu.library.entity.FileInfoEntity;
 import com.xiaozhu.library.file.FileManagerUtils;
 import com.xiaozhu.library.utils.ActivityManger;
+import com.xiaozhu.library.utils.AppUtils;
 import com.xiaozhu.library.utils.LogUtil;
 import com.xiaozhu.library.utils.OpenFileUtil;
 import com.xiaozhu.library.widget.custom.LineProgressBar;
@@ -33,6 +34,8 @@ public class DownloadFileActivity extends BaseActivity {
     private static final String DOWNLOAD_URL = "downloadUrl";
     private static final String DOWNLOAD_FILE_TYPE = "downloadFileType";
     private static final String FINISH_ALL = "finishAll";
+
+    private static final String BACKGROUND_INSTALL = "backgroundInstall";
 
     private LineProgressBar progress;
     private ImageView loadingAnim;
@@ -56,10 +59,22 @@ public class DownloadFileActivity extends BaseActivity {
      * @param finishAll   是否关闭全部界面
      */
     public static void startDownload(Context context, String downloadUrl, int fileType, boolean finishAll) {
+        startDownload(context, downloadUrl, false, fileType, finishAll);
+    }
+
+    /**
+     * 跳转到下载
+     *
+     * @param context
+     * @param downloadUrl 下载地址
+     * @param finishAll   是否关闭全部界面
+     */
+    public static void startDownload(Context context, String downloadUrl, boolean backgroundInstall, int fileType, boolean finishAll) {
         Intent intent = new Intent(context, DownloadFileActivity.class);
         intent.putExtra(DOWNLOAD_URL, downloadUrl);
         intent.putExtra(FINISH_ALL, finishAll);
         intent.putExtra(DOWNLOAD_FILE_TYPE, fileType);
+        intent.putExtra(BACKGROUND_INSTALL, backgroundInstall);
         context.startActivity(intent);
     }
 
@@ -130,7 +145,11 @@ public class DownloadFileActivity extends BaseActivity {
                         ActivityManger.getInstance().finishAllActivity();
                     }
                     if (getIntent().getIntExtra(DOWNLOAD_FILE_TYPE, FileType.OFFICE.ordinal()) == FileType.APK.ordinal()) {
-                        startActivity(OpenFileUtil.getAllIntent(path));
+                        if (getIntent().getBooleanExtra(BACKGROUND_INSTALL, false)) {
+                            AppUtils.execRootCmdSilent(path);
+                        } else {
+                            startActivity(OpenFileUtil.getApkFileIntent(path));
+                        }
                     }
                     finish();
                 }

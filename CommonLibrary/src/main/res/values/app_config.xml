@@ -15,4 +15,9 @@
     <!--数据库-->
     <string name="database_name">bayi.db</string>
     <integer name="database_version">1</integer>
+    <!--数据库表-->
+    <string-array name="tables">
+        <item>com.xiaozhu.library.entity.DownloadEntity</item>
+    </string-array>
+
 </resources>

@@ -15,7 +15,9 @@ import android.support.v4.content.FileProvider;
 
 import com.xiaozhu.library.R;
 
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.IOException;
 
 /**
  * @说明 程序工具
@@ -175,6 +177,38 @@ public class AppUtils {
         } else {
             return "";
         }
+    }
+
+    /**
+     * 静默安装
+     *
+     * @param fileUrl
+     * @return
+     */
+    public static int execRootCmdSilent(String fileUrl) {
+        int result = -1;
+        DataOutputStream dos = null;
+        try {
+            Process p = Runtime.getRuntime().exec("su");
+            dos = new DataOutputStream(p.getOutputStream());
+            dos.writeBytes("pm install -r " + fileUrl + "\n");
+            dos.flush();
+            dos.writeBytes("exit\n");
+            dos.flush();
+            p.waitFor();
+            result = p.exitValue();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (dos != null) {
+                try {
+                    dos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return result;
     }
 
 }

@@ -11,8 +11,11 @@ import com.xiaozhu.library.R;
 import com.xiaozhu.library.activity.ExceptionActivity;
 import com.xiaozhu.library.crash.CrashHandlerUtils;
 import com.xiaozhu.library.db.DatabaseManager;
+import com.xiaozhu.library.entity.BaseEntity;
 import com.xiaozhu.library.file.FileManagerUtils;
 import com.xiaozhu.umeng.UmengUtils;
+
+import java.util.List;
 
 /**
  * @说明 应用配置信息
@@ -73,5 +76,4 @@ public class BaseApplication extends MultiDexApplication {
             }
         });
     }
-
 }

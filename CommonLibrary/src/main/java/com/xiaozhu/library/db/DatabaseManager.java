@@ -3,8 +3,12 @@ package com.xiaozhu.library.db;
 import android.content.Context;
 
 import com.xiaozhu.library.R;
+import com.xiaozhu.library.app.BaseApplication;
 import com.xiaozhu.library.entity.DownloadEntity;
 import com.xiaozhu.ormlite.DatabaseManagerWrapper;
+
+import java.io.InputStream;
+import java.util.List;
 
 
 /**
@@ -17,8 +21,11 @@ import com.xiaozhu.ormlite.DatabaseManagerWrapper;
  */
 public class DatabaseManager extends DatabaseManagerWrapper {
     private static volatile DatabaseManager instance;
+    private Context mContext;
+
     private DatabaseManager() {
     }
+
     public static DatabaseManager getInstance() {
         DatabaseManager inst = instance;
         if (inst == null) {
@@ -37,13 +44,22 @@ public class DatabaseManager extends DatabaseManagerWrapper {
      * 初始化数据库
      */
     public void init(Context context) {
+        this.mContext = context;
         super.init(context, context.getResources().getString(R.string.database_name), context.getResources().getInteger(R.integer.database_version));
     }
 
     @Override
     protected void registerTable() {
-        addTable(DownloadEntity.class);
-      //  addTable(MessageEntity.class);
-       // addTable(HomeModelEntity.class);
+        try {
+            String[] tables = mContext.getResources().getStringArray(R.array.tables);
+            if (tables != null && tables.length > 0) {
+                for (int i = 0; i < tables.length; i++) {
+                    addTable(Class.forName(tables[i]));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
 }
