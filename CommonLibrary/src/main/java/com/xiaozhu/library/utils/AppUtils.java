@@ -7,6 +7,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
@@ -157,6 +159,22 @@ public class AppUtils {
      */
     public static int getSDKVersion() {
         return Build.VERSION.SDK_INT;
+    }
+
+    /**
+     * 获取设备的唯一标识，deviceId
+     *
+     * @param context
+     * @return
+     */
+    public static String getMAC(Context context) {
+        WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        if (wifiInfo.getMacAddress() != null) {
+            return wifiInfo.getMacAddress().replaceAll(":", "");
+        } else {
+            return "";
+        }
     }
 
 }
