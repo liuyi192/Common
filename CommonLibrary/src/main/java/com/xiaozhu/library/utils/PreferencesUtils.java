@@ -26,7 +26,7 @@ public class PreferencesUtils {
      * @param values  对应值
      */
     public static void saveStringValues(Context context, String key, String values) {
-        getSharedPreferences(context).edit().putString(key, values);
+        getSharedPreferences(context).edit().putString(key, values).commit();
     }
 
     /**
