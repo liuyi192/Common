@@ -12,11 +12,8 @@ import android.content.SharedPreferences;
  * @备注
  */
 public class PreferencesUtils {
-    static String SP_SETTING = "setting";
 
-    private static SharedPreferences getSharedPreferences(Context context) {
-        return context.getSharedPreferences(SP_SETTING, 0);
-    }
+    static String SP_SETTING = "setting";
 
     /**
      * 保存字符串
@@ -25,76 +22,9 @@ public class PreferencesUtils {
      * @param key     对应KEY
      * @param values  对应值
      */
-    public static void saveStringValues(Context context, String key, String values) {
-        getSharedPreferences(context).edit().putString(key, values).commit();
-    }
-
-    /**
-     * 保存int数据
-     *
-     * @param context
-     * @param key     对应KEY
-     * @param values  对应值
-     */
-    public static void saveIntValues(Context context, String key, int values) {
-        getSharedPreferences(context).edit().putInt(key, values).commit();
-    }
-
-    /**
-     * 保存boolean值
-     *
-     * @param context
-     * @param key     对应KEY
-     * @param values  对应值
-     */
-    public static void saveBooleanValues(Context context, String key, boolean values) {
-        getSharedPreferences(context).edit().putBoolean(key, values).commit();
-    }
-
-    /**
-     * 保存long值
-     *
-     * @param context
-     * @param key     对应KEY
-     * @param values  对应值
-     */
-    public static void saveLongValues(Context context, String key, long values) {
-        getSharedPreferences(context).edit().putLong(key, values).commit();
-    }
-
-    /**
-     * 获取long值
-     *
-     * @param context
-     * @param key     对应KEY
-     * @return KEY对饮的值
-     */
-    public static long getLongValues(Context context, String key) {
-        return getSharedPreferences(context).getLong(key, 0l);
-    }
-
-
-    /**
-     * 获取boolean值
-     *
-     * @param context
-     * @param key     对应KEY
-     * @return KEY对饮的值
-     */
-    public static boolean getBooleanValues(Context context, String key) {
-        return getSharedPreferences(context).getBoolean(key, false);
-    }
-
-
-    /**
-     * 获取int类型数据
-     *
-     * @param context
-     * @param key     对应KEY
-     * @return KEY对饮的值
-     */
-    public static int getIntValues(Context context, String key) {
-        return getSharedPreferences(context).getInt(key, 0);
+    public static void saveString(Context context, String key, String values) {
+        SharedPreferences sp = context.getSharedPreferences(SP_SETTING, 0);
+        sp.edit().putString(key, values).commit();
     }
 
     /**
@@ -105,7 +35,56 @@ public class PreferencesUtils {
      * @return KEY对饮的值
      */
     public static String getStringValues(Context context, String key) {
-        return getSharedPreferences(context).getString(key, "");
+        SharedPreferences sp = context.getSharedPreferences(SP_SETTING, 0);
+        return sp.getString(key, "");
+    }
+
+    /**
+     * 保存int数据
+     *
+     * @param context
+     * @param key     对应KEY
+     * @param values  对应值
+     */
+    public static void saveIntValues(Context context, String key, int values) {
+        SharedPreferences sp = context.getSharedPreferences(SP_SETTING, 0);
+        sp.edit().putInt(key, values).commit();
+    }
+
+    /**
+     * 获取int类型数据
+     *
+     * @param context
+     * @param key     对应KEY
+     * @return KEY对饮的值
+     */
+    public static int getIntValues(Context context, String key) {
+        SharedPreferences sp = context.getSharedPreferences(SP_SETTING, 0);
+        return sp.getInt(key, 0);
+    }
+
+    /**
+     * 保存boolean值
+     *
+     * @param context
+     * @param key     对应KEY
+     * @param values  对应值
+     */
+    public static void saveBooleanValues(Context context, String key, boolean values) {
+        SharedPreferences sp = context.getSharedPreferences(SP_SETTING, 0);
+        sp.edit().putBoolean(key, values).commit();
+    }
+
+    /**
+     * 获取boolean值
+     *
+     * @param context
+     * @param key     对应KEY
+     * @return KEY对饮的值
+     */
+    public static boolean getBooleanValues(Context context, String key) {
+        SharedPreferences sp = context.getSharedPreferences(SP_SETTING, 0);
+        return sp.getBoolean(key, false);
     }
 
 }
