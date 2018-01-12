@@ -16,6 +16,7 @@ import com.xiaozhu.library.utils.ActivityManger;
 import com.xiaozhu.library.widget.dialog.LoadingDialog;
 import com.xiaozhu.umeng.UmengUtils;
 
+import butterknife.ButterKnife;
 import de.greenrobot.event.Subscribe;
 import de.greenrobot.event.ThreadMode;
 
@@ -34,6 +35,8 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResID());
+        //注解
+        ButterKnife.bind(this);
         //注册监听
         EventBusUtils.getInstance().registerEventBus(this);
         //把当前Activity加入堆栈内

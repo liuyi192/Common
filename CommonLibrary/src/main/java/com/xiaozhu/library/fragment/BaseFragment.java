@@ -15,6 +15,7 @@ import com.xiaozhu.library.interfaces.BaseFragmentViewInterface;
 import com.xiaozhu.library.mvp.BaseView;
 import com.xiaozhu.library.widget.dialog.LoadingDialog;
 
+import butterknife.ButterKnife;
 import de.greenrobot.event.Subscribe;
 import de.greenrobot.event.ThreadMode;
 
@@ -42,6 +43,7 @@ public abstract class BaseFragment extends Fragment implements BaseFragmentViewI
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View contentView = inflater.inflate(getLayoutResID(), container, false);
+        ButterKnife.bind(this, contentView);
         initView(contentView);
         return contentView;
     }

@@ -3,6 +3,8 @@ package com.xiaozhu.library.adapters;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import butterknife.ButterKnife;
+
 /**
  * @说明 基类
  * @作者 LY
@@ -15,5 +17,6 @@ public class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
 
     public BaseRecyclerViewHolder(View itemView, int viewType) {
         super(itemView);
+        ButterKnife.bind(this, itemView);
     }
 }

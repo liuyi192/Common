@@ -1,20 +1,13 @@
 package com.xiaozhu.common.banner;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.xiaozhu.common.R;
-import com.xiaozhu.library.entity.BaseEntity;
 import com.xiaozhu.library.widget.glideImage.GlideImageView;
-
 import java.util.ArrayList;
 import java.util.List;
 

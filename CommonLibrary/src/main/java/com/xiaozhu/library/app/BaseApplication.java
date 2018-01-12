@@ -27,6 +27,7 @@ import java.util.List;
  */
 public class BaseApplication extends MultiDexApplication {
     private static BaseApplication instance;
+    private static Context mContext;
 
     public static BaseApplication getInstance() {
         if (instance == null) {
@@ -42,6 +43,7 @@ public class BaseApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = this;
         MultiDex.install(this);
         //友盟初始化
         UmengUtils.getInstance().init(this, getResources().getString(R.string.um_app_key), getResources().getString(R.string.um_channel_id));
@@ -54,7 +56,7 @@ public class BaseApplication extends MultiDexApplication {
     }
 
     public Context getAppContext() {
-        return instance;
+        return mContext;
     }
 
     /**
