@@ -46,7 +46,6 @@ dependencies {
     compile 'com.jaywei:compresstool:1.2.0'
     //注解
     compile 'com.jakewharton:butterknife:8.5.1'
-    compile 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     //数据库
     compile 'com.github.liuyi192:Ormlite:v1.0'
