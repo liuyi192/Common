@@ -74,6 +74,7 @@ public class FileManagerUtils implements FileManagerInterface {
         if (TextUtils.isEmpty(filePath)) return 0;
         long size = 0;
         File flist[] = (new File(filePath)).listFiles();
+        if (flist == null && flist.length <= 0) return 0;
         for (int i = 0; i < flist.length; i++) {
             if (flist[i].isDirectory()) {
                 size = size + getFileSize(flist[i].getAbsolutePath());
@@ -404,11 +405,12 @@ public class FileManagerUtils implements FileManagerInterface {
     }
 
     /**
-     *  获取文件路径
+     * 获取文件路径
+     *
      * @param type
      * @return
      */
-    public String getFolderPath(int type){
+    public String getFolderPath(int type) {
         String folder = FileManagerUtils.getInstance().getAppPath() + "/";
         if (FileType.APK.ordinal() == type) {
             folder = FileManagerUtils.getInstance().getApkFolder();
