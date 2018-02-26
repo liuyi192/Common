@@ -6,6 +6,14 @@
         <item name="android:windowBackground">@color/window_bg</item>
     </style>
 
+    <!--查看图片主题-->
+    <style name="CheckAtlasTheme" parent="BaseAppTheme">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/black</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/black</item>
+    </style>
     <!--对话框-->
     <style name="customProgressDialog" parent="@style/customProgress">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -20,5 +28,17 @@
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
         <item name="android:windowCloseOnTouchOutside">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+    <!--TabLayout标签-->
+    <style name="TabLayout" parent="Base.Widget.Design.TabLayout">
+        <item name="tabMaxWidth">@dimen/tab_max_width</item>
+        <item name="tabIndicatorColor">@color/tab_indicator_color</item>
+        <item name="tabIndicatorHeight">@dimen/DIMEN_SIZE_2DP</item>
+        <item name="tabPaddingStart">@dimen/DIMEN_SIZE_12DP</item>
+        <item name="tabPaddingEnd">@dimen/DIMEN_SIZE_12DP</item>
+        <item name="tabBackground">@color/tab_background</item>
+        <item name="tabTextColor">@color/tab_text_color</item>
+        <item name="tabSelectedTextColor">@color/tab_text_select_color</item>
+        <item name="android:textSize">@dimen/tab_layout_text_size</item>
     </style>
 </resources>

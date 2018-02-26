@@ -44,32 +44,32 @@
     </declare-styleable>
     <!--圆形指示器-->
     <declare-styleable name="CircleIndicator">
-        <attr name="ci_width" format="dimension"/>
-        <attr name="ci_height" format="dimension"/>
-        <attr name="ci_margin" format="dimension"/>
-        <attr name="ci_animator" format="reference"/>
-        <attr name="ci_animator_reverse" format="reference"/>
-        <attr name="ci_drawable" format="reference"/>
-        <attr name="ci_drawable_unselected" format="reference"/>
+        <attr name="ci_width" format="dimension" />
+        <attr name="ci_height" format="dimension" />
+        <attr name="ci_margin" format="dimension" />
+        <attr name="ci_animator" format="reference" />
+        <attr name="ci_animator_reverse" format="reference" />
+        <attr name="ci_drawable" format="reference" />
+        <attr name="ci_drawable_unselected" format="reference" />
         <attr name="ci_orientation" format="enum">
-            <enum name="horizontal" value="0"/>
-            <enum name="vertical" value="1"/>
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
         </attr>
         <attr name="ci_gravity">
-            <flag name="top" value="0x30"/>
-            <flag name="bottom" value="0x50"/>
-            <flag name="left" value="0x03"/>
-            <flag name="right" value="0x05"/>
-            <flag name="center_vertical" value="0x10"/>
-            <flag name="fill_vertical" value="0x70"/>
-            <flag name="center_horizontal" value="0x01"/>
-            <flag name="fill_horizontal" value="0x07"/>
-            <flag name="center" value="0x11"/>
-            <flag name="fill" value="0x77"/>
-            <flag name="clip_vertical" value="0x80"/>
-            <flag name="clip_horizontal" value="0x08"/>
-            <flag name="start" value="0x00800003"/>
-            <flag name="end" value="0x00800005"/>
+            <flag name="top" value="0x30" />
+            <flag name="bottom" value="0x50" />
+            <flag name="left" value="0x03" />
+            <flag name="right" value="0x05" />
+            <flag name="center_vertical" value="0x10" />
+            <flag name="fill_vertical" value="0x70" />
+            <flag name="center_horizontal" value="0x01" />
+            <flag name="fill_horizontal" value="0x07" />
+            <flag name="center" value="0x11" />
+            <flag name="fill" value="0x77" />
+            <flag name="clip_vertical" value="0x80" />
+            <flag name="clip_horizontal" value="0x08" />
+            <flag name="start" value="0x00800003" />
+            <flag name="end" value="0x00800005" />
         </attr>
     </declare-styleable>
     <!--轮播图-->
@@ -83,13 +83,76 @@
             <enum name="center" value="1" />
             <enum name="right" value="2" />
         </attr>
-        <attr name="rollviewpager_hint_paddingRight" format="dimension"/>
-        <attr name="rollviewpager_hint_paddingLeft" format="dimension"/>
-        <attr name="rollviewpager_hint_paddingTop" format="dimension"/>
-        <attr name="rollviewpager_hint_paddingBottom" format="dimension"/>
+        <attr name="rollviewpager_hint_paddingRight" format="dimension" />
+        <attr name="rollviewpager_hint_paddingLeft" format="dimension" />
+        <attr name="rollviewpager_hint_paddingTop" format="dimension" />
+        <attr name="rollviewpager_hint_paddingBottom" format="dimension" />
 
         <attr name="rollviewpager_play_delay" format="integer" />
         <attr name="rollviewpager_hint_color" format="color" />
         <attr name="rollviewpager_hint_alpha" format="integer" />
+    </declare-styleable>
+    <!--圆角控件-->
+    <declare-styleable name="RCRelativeLayout">
+        <!--圆形-->
+        <attr name="round_as_circle" format="boolean" />
+        <!--全部圆角半径-->
+        <attr name="round_corner" format="integer|dimension" />
+        <!--针对各个角的半径-->
+        <attr name="round_corner_top_left" format="integer|dimension" />
+        <attr name="round_corner_top_right" format="integer|dimension" />
+        <attr name="round_corner_bottom_left" format="integer|dimension" />
+        <attr name="round_corner_bottom_right" format="integer|dimension" />
+        <!--描边颜色／半径-->
+        <attr name="stroke_color" format="color|reference" />
+        <attr name="stroke_width" format="integer|dimension" />
+    </declare-styleable>
+    <!--CheckBox动画-->
+    <declare-styleable name="SmoothCheckBox">
+        <attr name="duration" format="integer" />
+        <attr name="smooth_width" format="dimension" />
+        <attr name="color_tick" format="color" />
+        <attr name="color_checked" format="color" />
+        <attr name="color_unchecked" format="color" />
+        <attr name="color_unchecked_stroke" format="color" />
+    </declare-styleable>
+    <!--滑动控件 阻力效果-->
+    <declare-styleable name="SlidingLayout">
+        <attr name="background_view" format="reference" />
+        <attr name="sliding_mode" format="enum">
+            <enum name="both" value="0" />
+            <enum name="top" value="1" />
+            <enum name="bottom" value="2" />
+        </attr>
+        <attr name="sliding_pointer_mode" format="enum">
+            <enum name="one" value="0" />
+            <enum name="more" value="1" />
+        </attr>
+        <attr name="top_max" format="dimension" />
+    </declare-styleable>
+    <!--自动邮箱补全-->
+    <declare-styleable name="AutomaticCompletionEmailEdit">
+        <attr name="domains" format="string" />
+        <attr name="default_drop_down_key_color" format="color" />
+        <attr name="default_drop_down_bg" format="reference" />
+        <attr name="default_drop_down_divider" format="boolean" />
+    </declare-styleable>
+    <!---->
+    <declare-styleable name="TabView">
+        <attr name="tab_textViewSelColor" format="reference|color" />
+        <attr name="tab_textViewUnSelColor" format="reference|color" />
+        <attr name="tab_tabViewBackgroundColor" format="reference|color" />
+        <attr name="tab_tabViewHeight" format="dimension" />
+        <attr name="imageViewTextViewMargin" format="dimension" />
+        <attr name="tab_textViewSize" format="dimension" />
+        <attr name="tab_imageViewWidth" format="dimension" />
+        <attr name="tab_imageViewHeight" format="dimension" />
+        <attr name="tab_tabViewGravity">
+            <flag name="top" value="0x30" />
+            <flag name="bottom" value="0x50" />
+            <flag name="left" value="0x03" />
+            <flag name="right" value="0x05" />
+        </attr>
+        <attr name="tab_tabViewDefaultPosition" format="integer" />
     </declare-styleable>
 </resources>

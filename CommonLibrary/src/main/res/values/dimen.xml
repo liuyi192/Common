@@ -3,7 +3,9 @@
     <!--APP公共值-->
     <dimen name="title_bar_height">@dimen/DIMEN_SIZE_50DP</dimen>
     <dimen name="line_height">@dimen/DIMEN_SIZE_0.5DP</dimen>
-
+    <dimen name="tab_layout_height">@dimen/DIMEN_SIZE_40DP</dimen>
+    <dimen name="tab_layout_text_size">@dimen/DIMEN_SIZE_24DP</dimen>
+    <dimen name="tab_max_width">@dimen/DIMEN_SIZE_120DP</dimen>
 
     <!--常用值-->
     <dimen name="DIMEN_SIZE_0DP">0dp</dimen>

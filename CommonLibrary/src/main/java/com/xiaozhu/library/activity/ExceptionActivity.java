@@ -6,10 +6,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.xiaozhu.library.R;
-import com.xiaozhu.library.entity.EventBusEntity;
-import com.xiaozhu.library.eventBus.BaseEventBusConfig;
-import com.xiaozhu.library.eventBus.EventBusUtils;
 import com.xiaozhu.library.utils.ActivityManger;
+
 
 /**
  * @说明 异常界面
@@ -29,6 +27,7 @@ public class ExceptionActivity extends BaseActivity {
      */
     public static void startException(Context context) {
         Intent intent = new Intent(context, ExceptionActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 

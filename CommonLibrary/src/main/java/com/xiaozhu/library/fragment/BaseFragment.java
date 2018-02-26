@@ -57,17 +57,10 @@ public abstract class BaseFragment extends Fragment implements BaseFragmentViewI
 
     @Subscribe(threadMode = ThreadMode.MainThread)
     public void onMainEventBus(EventBusEntity eventBusEntity) {
-        onEventBus(eventBusEntity);
     }
 
     @Subscribe(threadMode = ThreadMode.Async)
     public void onAsyncEventBus(final EventBusEntity eventBusEntity) {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                onEventBus(eventBusEntity);
-            }
-        });
     }
 
     @Override

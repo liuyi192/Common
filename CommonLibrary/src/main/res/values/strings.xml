@@ -12,6 +12,10 @@
     <string name="download_complete">下载完成！</string>
     <string name="download_fail">下载失败!</string>
 
+    <string name="photo_album">相册</string>
+    <string name="select_photo_max">选择的图片张数，已经超过最大上限！</string>
+    <string name="confirm_num">确定（%1$s/%2$s）</string>
+
     <!--错误提示-->
     <string name="error_prompt">系统程序开小差了～～\n退出应用稍后再试试吧！</string>
     <string name="error_prompt_btn">我知道了</string>

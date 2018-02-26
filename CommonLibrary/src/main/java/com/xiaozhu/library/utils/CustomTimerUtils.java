@@ -14,7 +14,7 @@ public class CustomTimerUtils extends CountDownTimer {
     private CustomTimerListener customTimerListener;
 
     public CustomTimerUtils(long millisInFuture, long countDownInterval) {
-        super(millisInFuture, countDownInterval);
+        super(millisInFuture * 1000, countDownInterval * 1000);
     }
 
     public void setCustomTimerListener(CustomTimerListener customTimerListener) {

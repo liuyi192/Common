@@ -18,6 +18,7 @@
     <!--数据库表-->
     <string-array name="tables">
         <item>com.xiaozhu.library.entity.DownloadEntity</item>
+        <item>com.xiaozhu.library.entity.CountEntity</item>
     </string-array>
 
 </resources>

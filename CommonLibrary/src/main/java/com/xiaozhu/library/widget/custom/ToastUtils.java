@@ -97,7 +97,7 @@ public class ToastUtils {
             toast.cancel();
             toast = null;
         }
-        toast = new Toast(BaseApplication.getInstance());
+        toast = new Toast(BaseApplication.getInstance().getAppContext());
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(view);
         toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 100);

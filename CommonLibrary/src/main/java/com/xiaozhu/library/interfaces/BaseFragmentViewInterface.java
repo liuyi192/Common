@@ -29,11 +29,4 @@ public interface BaseFragmentViewInterface {
      * @return
      */
     int getLayoutResID();
-
-    /**
-     * 消息处理
-     *
-     * @param eventBusEntity
-     */
-    void onEventBus(EventBusEntity eventBusEntity);
 }

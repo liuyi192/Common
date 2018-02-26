@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="viewpager_inner" type="id"/>
+    <item name="viewpager_inner" type="id" />
+    <!--tabview-->
+    <item name="tabview_id" type="id" />
+    <item name="tabview_fragment_container" type="id" />
 </resources>

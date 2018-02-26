@@ -76,6 +76,15 @@ public class TitleBarView extends FrameLayout {
     }
 
     /**
+     * 设置按钮名称
+     *
+     * @param name
+     */
+    public void setBtnTvRightName(String name) {
+        btnTvRight.setText(name);
+    }
+
+    /**
      * 设置右边图片按钮
      *
      * @param resId

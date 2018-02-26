@@ -44,7 +44,6 @@ public class ShapeImageView extends AppCompatImageView {
     private int borderWidth = 0; // 边框宽度
     private int radius = 0; // 圆角弧度
     private int shapeType = ShapeType.RECTANGLE; // 图片类型（圆形, 矩形）
-    private Paint pressedPaint; // 按下的画笔
     private float pressedAlpha = 0.1f; // 按下的透明度
     private int pressedColor = 0x1A000000; // 按下的颜色
 
@@ -86,20 +85,9 @@ public class ShapeImageView extends AppCompatImageView {
             shapeType = array.getInteger(R.styleable.ShapeImageView_siv_shape_type, shapeType);
             array.recycle();
         }
-        initPressedPaint();
         setClickable(false);
         setDrawingCacheEnabled(true);
         setWillNotDraw(false);
-    }
-
-    // 初始化按下的画笔
-    private void initPressedPaint() {
-        pressedPaint = new Paint();
-        pressedPaint.setAntiAlias(true);
-        pressedPaint.setStyle(Paint.Style.FILL);
-        pressedPaint.setColor(pressedColor);
-        pressedPaint.setAlpha(0);
-        pressedPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
     }
 
     @Override
@@ -113,7 +101,6 @@ public class ShapeImageView extends AppCompatImageView {
         }
         drawDrawable(canvas, getBitmapFromDrawable(drawable));
         drawBorder(canvas);
-        drawPressed(canvas);
     }
 
     @Override
@@ -165,31 +152,18 @@ public class ShapeImageView extends AppCompatImageView {
         }
     }
 
-    // 绘制按下效果
-    private void drawPressed(Canvas canvas) {
-        if (shapeType == ShapeType.RECTANGLE) {
-            RectF rectf = new RectF(1, 1, width - 1, height - 1);
-            canvas.drawRoundRect(rectf, radius, radius, pressedPaint);
-        } else {
-            canvas.drawCircle(width / 2, height / 2, width / 2, pressedPaint);
-        }
-    }
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                pressedPaint.setAlpha((int) (pressedAlpha * 255));
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
-                pressedPaint.setAlpha(0);
                 invalidate();
                 break;
             case MotionEvent.ACTION_MOVE:
                 break;
             default:
-                pressedPaint.setAlpha(0);
                 invalidate();
                 break;
         }
@@ -237,8 +211,6 @@ public class ShapeImageView extends AppCompatImageView {
     // 设置图片按下的颜色
     public void setPressedColor(@ColorRes int id) {
         this.pressedColor = getResources().getColor(id);
-        pressedPaint.setColor(pressedColor);
-        pressedPaint.setAlpha(0);
         invalidate();
     }
 

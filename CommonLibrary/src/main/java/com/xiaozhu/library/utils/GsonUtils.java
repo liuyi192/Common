@@ -47,4 +47,15 @@ public class GsonUtils {
         }
         return arrayList;
     }
+
+    /**
+     * 对象转换成JSON类型
+     *
+     * @param bean
+     * @return
+     */
+    public static String beanToJson(Object bean) {
+        Gson gson = new Gson();
+        return gson.toJson(bean);
+    }
 }
