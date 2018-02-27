@@ -28,12 +28,16 @@ public class EventBusUtils implements EventBusInterface {
 
     @Override
     public void registerEventBus(Object object) {
-        EventBus.getDefault().register(object);
+        if (!EventBus.getDefault().isRegistered(object)) {
+            EventBus.getDefault().register(object);
+        }
     }
 
     @Override
     public void unregister(Object object) {
-        EventBus.getDefault().unregister(object);
+        if (EventBus.getDefault().isRegistered(object)) {
+            EventBus.getDefault().unregister(object);
+        }
     }
 
     @Override
