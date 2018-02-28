@@ -21,11 +21,9 @@ import java.util.List;
  * @备注
  */
 public class BaseTabFragment extends BaseFragment implements BaseTabInterface {
-    private TabLayout tabView;
-    private ImageView btnAdd;
-    private ViewPager viewPager;
-
-
+    protected TabLayout tabView;
+    protected ImageView btnAdd;
+    protected ViewPager viewPager;
     private TabPagerAdapter tabPagerAdapter;
 
     @Override
@@ -34,7 +32,6 @@ public class BaseTabFragment extends BaseFragment implements BaseTabInterface {
         btnAdd = view.findViewById(R.id.btnAdd);
         viewPager = view.findViewById(R.id.viewPager);
         tabView.setupWithViewPager(viewPager);
-        tabView.setTabMode(TabLayout.MODE_SCROLLABLE);
     }
 
     @Override
