@@ -22,10 +22,10 @@ import java.util.List;
  * @备注
  */
 public class BaseTabActivity extends BaseActivity implements BaseTabInterface {
-    private TabLayout tabView;
-    private ImageView btnAdd;
-    private ViewPager viewPager;
-    private TabPagerAdapter tabPagerAdapter;
+    protected TabLayout tabView;
+    protected ImageView btnAdd;
+    protected ViewPager viewPager;
+    protected TabPagerAdapter tabPagerAdapter;
 
     @Override
     public void initView() {
@@ -33,7 +33,6 @@ public class BaseTabActivity extends BaseActivity implements BaseTabInterface {
         btnAdd = this.findViewById(R.id.btnAdd);
         viewPager = this.findViewById(R.id.viewPager);
         tabView.setupWithViewPager(viewPager);
-        tabView.setTabMode(TabLayout.MODE_SCROLLABLE);
     }
 
     @Override

@@ -22,7 +22,8 @@
             android:layout_width="@dimen/DIMEN_SIZE_50DP"
             android:layout_height="match_parent"
             android:scaleType="center"
-            android:src="@drawable/icon_add_white" />
+            android:src="@drawable/icon_add_white"
+            android:visibility="gone" />
 
     </LinearLayout>
 
