@@ -30,6 +30,7 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
     protected LoadingDataView loadingView;
     protected AutoRecyclerAdapter autoRecyclerAdapter;
     protected int pageIndex = 0;
+    private int defaultPage = 0;
 
     @Override
     public void initView(View view) {
@@ -46,6 +47,7 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
         }
         //设置默认页码
         pageIndex = getActivity().getResources().getInteger(R.integer.default_page);
+        defaultPage = getActivity().getResources().getInteger(R.integer.default_page);
         //设置刷新监听
         refreshLayout.setOnRefreshLoadmoreListener(new OnRefreshLoadmoreListener() {
             @Override
@@ -57,7 +59,7 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 //刷新
-                pageIndex = getActivity().getResources().getInteger(R.integer.default_page);
+                pageIndex = defaultPage;
                 startRefresh();
                 loadingData();
             }
