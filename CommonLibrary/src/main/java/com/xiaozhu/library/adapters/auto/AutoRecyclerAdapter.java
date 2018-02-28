@@ -266,8 +266,10 @@ public class AutoRecyclerAdapter extends RecyclerView.Adapter {
     }
 
     public AutoRecyclerAdapter clear() {
-        packageList.clear();
-        dataList.clear();
+        if (packageList != null && packageList.size() > 0)
+            packageList.clear();
+        if (dataList != null && dataList.size() > 0)
+            dataList.clear();
         return this;
     }
 

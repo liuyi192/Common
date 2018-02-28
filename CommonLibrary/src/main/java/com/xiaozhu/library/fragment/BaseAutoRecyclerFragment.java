@@ -97,7 +97,7 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
     public void stopRefresh() {
         refreshLayout.finishRefresh();
         refreshLayout.finishLoadmore();
-        if (autoRecyclerAdapter.getDataList().size() > 0) {
+        if (autoRecyclerAdapter.getDataList() != null && autoRecyclerAdapter.getDataList().size() > 0) {
             recyclerView.setVisibility(View.VISIBLE);
             loadingView.setVisibility(View.GONE);
         } else {
