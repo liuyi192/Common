@@ -59,9 +59,11 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 //刷新
-                pageIndex = defaultPage;
-                startRefresh();
-                loadingData();
+                if (!refreshlayout.isLoading()) {
+                    pageIndex = defaultPage;
+                    startRefresh();
+                    loadingData();
+                }
             }
         });
         //刷新状态监听
