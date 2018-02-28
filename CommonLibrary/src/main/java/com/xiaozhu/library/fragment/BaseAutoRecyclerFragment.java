@@ -45,7 +45,7 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
             recyclerView.setAdapter(autoRecyclerAdapter);
         }
         //设置默认页码
-        pageIndex = getResources().getInteger(R.integer.default_page);
+        pageIndex = getActivity().getResources().getInteger(R.integer.default_page);
         //设置刷新监听
         refreshLayout.setOnRefreshLoadmoreListener(new OnRefreshLoadmoreListener() {
             @Override
@@ -57,7 +57,7 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 //刷新
-                pageIndex = getResources().getInteger(R.integer.default_page);
+                pageIndex = getActivity().getResources().getInteger(R.integer.default_page);
                 startRefresh();
                 loadingData();
             }
@@ -101,6 +101,9 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
         } else {
             recyclerView.setVisibility(View.GONE);
             loadingView.setVisibility(View.VISIBLE);
+        }
+        if (recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_IDLE || (recyclerView.isComputingLayout() == false)) {
+            autoRecyclerAdapter.notifyDataSetChanged();
         }
     }
 

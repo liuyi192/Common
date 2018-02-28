@@ -61,6 +61,7 @@ public abstract class BaseAutoRecyclerActivity extends BaseActivity implements B
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 //刷新
+                pageIndex = getResources().getInteger(R.integer.default_page);
                 startRefresh();
                 loadingData();
             }
@@ -91,7 +92,6 @@ public abstract class BaseAutoRecyclerActivity extends BaseActivity implements B
     @Override
     public void startRefresh() {
         autoRecyclerAdapter.clear();
-        pageIndex = getResources().getInteger(R.integer.default_page);
         refreshLayout.autoRefresh();
     }
 
@@ -105,6 +105,9 @@ public abstract class BaseAutoRecyclerActivity extends BaseActivity implements B
         } else {
             recyclerView.setVisibility(View.GONE);
             loadingView.setVisibility(View.VISIBLE);
+        }
+        if (recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_IDLE || (recyclerView.isComputingLayout() == false)) {
+            autoRecyclerAdapter.notifyDataSetChanged();
         }
     }
 
