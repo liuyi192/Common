@@ -61,9 +61,11 @@ public abstract class BaseAutoRecyclerActivity extends BaseActivity implements B
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 //刷新
-                pageIndex = getResources().getInteger(R.integer.default_page);
-                startRefresh();
-                loadingData();
+                if (!refreshlayout.isLoading()) {
+                    pageIndex = getResources().getInteger(R.integer.default_page);
+                    startRefresh();
+                    loadingData();
+                }
             }
         });
         //刷新状态监听
