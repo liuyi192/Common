@@ -2,6 +2,7 @@ package com.xiaozhu.library.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.xiaozhu.library.R;
@@ -31,6 +32,7 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
     protected AutoRecyclerAdapter autoRecyclerAdapter;
     protected int pageIndex = 0;
     private int defaultPage = 0;
+    private boolean mIsRefreshing = false;
 
     @Override
     public void initView(View view) {
@@ -59,11 +61,8 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 //刷新
-                if (!refreshlayout.isLoading()) {
-                    pageIndex = defaultPage;
-                    startRefresh();
-                    loadingData();
-                }
+                pageIndex = defaultPage;
+                startRefresh();
             }
         });
         //刷新状态监听
@@ -81,7 +80,16 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
 
     @Override
     public void business() {
-
+        recyclerView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (mIsRefreshing) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
     }
 
     @Override
@@ -91,12 +99,17 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
 
     @Override
     public void startRefresh() {
-        autoRecyclerAdapter.clear();
-        refreshLayout.autoRefresh();
+        if (!mIsRefreshing) {
+            autoRecyclerAdapter.clear();
+            refreshLayout.autoRefresh();
+            loadingData();
+            mIsRefreshing = true;
+        }
     }
 
     @Override
     public void stopRefresh() {
+        mIsRefreshing = false;
         refreshLayout.finishRefresh();
         refreshLayout.finishLoadmore();
         if (autoRecyclerAdapter.getDataList() != null && autoRecyclerAdapter.getDataList().size() > 0) {
