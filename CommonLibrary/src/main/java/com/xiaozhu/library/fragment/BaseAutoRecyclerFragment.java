@@ -57,6 +57,7 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 //刷新
+                pageIndex = getResources().getInteger(R.integer.default_page);
                 startRefresh();
                 loadingData();
             }
@@ -87,7 +88,6 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
     @Override
     public void startRefresh() {
         autoRecyclerAdapter.clear();
-        pageIndex = getResources().getInteger(R.integer.default_page);
         refreshLayout.autoRefresh();
     }
 
