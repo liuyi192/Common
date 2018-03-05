@@ -126,4 +126,12 @@ public class TitleBarView extends FrameLayout {
         btnIvRight = (ImageView) titleBarView.findViewById(R.id.btnIvRight);
         addView(titleBarView);
     }
+
+    public TextView getTvTitle() {
+        return tvTitle;
+    }
+
+    public TextView getBtnTvRight() {
+        return btnTvRight;
+    }
 }
