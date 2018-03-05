@@ -3,6 +3,7 @@ package com.xiaozhu.library.widget.loading;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,7 +77,27 @@ public class LoadingDataView extends FrameLayout {
         if (msgRes > 0) {
             tvInfo.setText(msgRes);
         }
+        loadingDataEmpty(iconRes, getResources().getString(msgRes));
     }
+
+    /**
+     * 加载数据为空的情况
+     *
+     * @param iconRes
+     * @param msgRes
+     */
+    public void loadingDataEmpty(int iconRes, String msgRes) {
+        loading.setVisibility(GONE);
+        loading.stopAnim();
+        icon.setVisibility(VISIBLE);
+        if (iconRes > 0) {
+            icon.setImageResource(iconRes);
+        }
+        if (!TextUtils.isEmpty(msgRes)) {
+            tvInfo.setText(msgRes);
+        }
+    }
+
 
     /**
      * 网络错误
