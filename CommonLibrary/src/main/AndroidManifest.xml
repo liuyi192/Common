@@ -7,16 +7,12 @@
         <!--查看图集-->
         <activity
             android:name=".activity.CheckAtlasActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/CheckAtlasTheme" />
         <!--查看相册-->
-        <activity
-            android:name=".activity.PhotoAlbumActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".activity.PhotoAlbumActivity" />
         <!--异常界面-->
         <activity
             android:name=".activity.ExceptionActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/customProgressDialog" />
         <!--下载界面-->
         <activity
