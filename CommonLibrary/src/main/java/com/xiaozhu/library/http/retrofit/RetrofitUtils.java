@@ -2,6 +2,7 @@ package com.xiaozhu.library.http.retrofit;
 
 import android.util.Log;
 
+import com.xiaozhu.library.R;
 import com.xiaozhu.library.app.BaseApplication;
 
 import java.util.concurrent.TimeUnit;
@@ -51,7 +52,21 @@ public class RetrofitUtils {
                 Log.i("INFO", message);
             }
         });
-        logging.setLevel(BaseApplication.getInstance().getLevelType());
+        int level = BaseApplication.getInstance().getAppContext().getResources().getInteger(R.integer.log_level);
+        switch (level) {
+            case 0:
+                logging.setLevel(HttpLoggingInterceptor.Level.NONE);
+                break;
+            case 1:
+                logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
+                break;
+            case 2:
+                logging.setLevel(HttpLoggingInterceptor.Level.HEADERS);
+                break;
+            case 3:
+                logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+                break;
+        }
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(CONNECT_TIME_OUT, TimeUnit.SECONDS)
                 .writeTimeout(WRITE_TIME_OUT, TimeUnit.SECONDS)

@@ -61,10 +61,6 @@ public class BaseApplication extends MultiDexApplication {
         return mContext;
     }
 
-    public HttpLoggingInterceptor.Level getLevelType() {
-        return HttpLoggingInterceptor.Level.BODY;
-    }
-
     /**
      * 捕获异常初始化
      */

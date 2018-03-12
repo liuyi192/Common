@@ -23,5 +23,7 @@
     <!--别名-->
     <string name="web_user_agent">common</string>
     <string name="javascript_name">common</string>
+    <!--测试-->
+    <integer name="log_level">1</integer>
 
 </resources>
