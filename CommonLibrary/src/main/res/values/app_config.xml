@@ -20,5 +20,8 @@
         <item>com.xiaozhu.library.entity.DownloadEntity</item>
         <item>com.xiaozhu.library.entity.CountEntity</item>
     </string-array>
+    <!--别名-->
+    <string name="web_user_agent">common</string>
+    <string name="javascript_name">common</string>
 
 </resources>
