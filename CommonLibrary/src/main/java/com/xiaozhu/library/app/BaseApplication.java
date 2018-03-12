@@ -62,7 +62,7 @@ public class BaseApplication extends MultiDexApplication {
     }
 
     public HttpLoggingInterceptor.Level getLevelType() {
-        return HttpLoggingInterceptor.Level.NONE;
+        return HttpLoggingInterceptor.Level.BODY;
     }
 
     /**
