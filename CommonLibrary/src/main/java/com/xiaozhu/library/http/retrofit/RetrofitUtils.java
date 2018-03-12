@@ -2,6 +2,8 @@ package com.xiaozhu.library.http.retrofit;
 
 import android.util.Log;
 
+import com.xiaozhu.library.app.BaseApplication;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -49,7 +51,7 @@ public class RetrofitUtils {
                 Log.i("INFO", message);
             }
         });
-        logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
+        logging.setLevel(BaseApplication.getInstance().getLevelType());
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(CONNECT_TIME_OUT, TimeUnit.SECONDS)
                 .writeTimeout(WRITE_TIME_OUT, TimeUnit.SECONDS)

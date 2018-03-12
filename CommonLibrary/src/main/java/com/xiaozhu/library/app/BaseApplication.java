@@ -17,6 +17,8 @@ import com.xiaozhu.umeng.UmengUtils;
 
 import java.util.List;
 
+import okhttp3.logging.HttpLoggingInterceptor;
+
 /**
  * @说明 应用配置信息
  * @作者 LY
@@ -57,6 +59,10 @@ public class BaseApplication extends MultiDexApplication {
 
     public Context getAppContext() {
         return mContext;
+    }
+
+    public HttpLoggingInterceptor.Level getLevelType() {
+        return HttpLoggingInterceptor.Level.NONE;
     }
 
     /**
