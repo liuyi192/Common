@@ -105,7 +105,6 @@ public abstract class BaseAutoRecyclerFragment extends BaseFragment implements B
         if (!mIsRefreshing) {
             autoRecyclerAdapter.clear();
             refreshLayout.autoRefresh();
-            loadingData();
             mIsRefreshing = true;
         }
     }
