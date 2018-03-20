@@ -25,6 +25,10 @@ public class CountEntity extends BaseEntity {
     private String createTime;//创建时间
     @DatabaseField(columnName = "countType")
     private int countType;// 0.未上传 1.已上传
+    @DatabaseField(columnName = "startTime")
+    private long startTime;
+    @DatabaseField(columnName = "endTime")
+    private long endTime;
 
     public int getId() {
         return id;
@@ -72,6 +76,22 @@ public class CountEntity extends BaseEntity {
 
     public void setCountType(int countType) {
         this.countType = countType;
+    }
+
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
+
+    public long getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
     }
 
     @Override
