@@ -43,6 +43,7 @@ public class CountDAOImpl implements CountDAO {
     public void saveStartData(CountEntity countEntity) {
         CountEntity countData = findDataByClassId(countEntity.getClassId());
         if (countData != null) {
+            countData.setStartTime(countEntity.getStartTime());
             countData.setStartCountData(countEntity.getStartCountData());
             dao.update(countData);
         } else {
@@ -55,6 +56,7 @@ public class CountDAOImpl implements CountDAO {
         CountEntity countData = findDataByClassId(countEntity.getClassId());
         if (countData != null) {
             countData.setEndCountData(countEntity.getEndCountData());
+            countData.setEndTime(countEntity.getEndTime());
             dao.update(countData);
         } else {
             dao.insert(countEntity);
