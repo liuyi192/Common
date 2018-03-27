@@ -11,7 +11,7 @@ package com.xiaozhu.library.http.exception;
 public enum HttpError {
     HTTP_EXCEPTION(2000, "网络错误"),
     ANALYTIC_SERVER_DATA_ERROR(1001, "解析错误"),
-    CONNECT_ERROR(1003, "连接失败"),
+    CONNECT_ERROR(1003, "网络连接失败，请先设置网络！"),
     TIME_OUT_ERROR(1004, "网络超时"),
     UN_KNOWN_ERROR(1000, "未知错误");
 
