@@ -14,6 +14,7 @@ import com.xiaozhu.library.R;
 import com.xiaozhu.library.activity.BaseActivity;
 import com.xiaozhu.library.mvp.BaseWebView;
 import com.xiaozhu.library.utils.AppUtils;
+import com.xiaozhu.library.utils.NetWorkUtils;
 import com.xiaozhu.library.widget.custom.TitleBarView;
 import com.xiaozhu.library.widget.loading.LoadingDataView;
 import com.xiaozhu.library.widget.web.WVJBWebView;
@@ -74,8 +75,12 @@ public abstract class BaseWebViewFragment extends BaseFragment implements BaseWe
     @Override
     public void business() {
         loadingView.setVisibility(View.VISIBLE);
-        webView.loadUrl(getLoadUrl());
-        loadingView.loading();
+        if (NetWorkUtils.getInstance().getNetworkStatus(getActivity())) {
+            webView.loadUrl(getLoadUrl());
+            loadingView.loading();
+        } else {
+            loadingView.loadingDataEmpty(R.mipmap.net_error, R.string.net_error);
+        }
     }
 
     @Override

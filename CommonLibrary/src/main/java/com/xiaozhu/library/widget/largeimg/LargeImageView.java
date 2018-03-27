@@ -160,9 +160,6 @@ public class LargeImageView extends View implements BlockImageLoader.OnImageLoad
     @Override
     public void setImage(Bitmap bm) {
         setImageDrawable(new BitmapDrawable(getResources(), bm));
-        if (!bm.isRecycled()) {
-            bm.recycle();
-        }
     }
 
     @Override
