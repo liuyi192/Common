@@ -13,6 +13,26 @@
         android:minWidth="@dimen/DIMEN_SIZE_300DP"
         android:orientation="vertical">
 
+        <com.xiaozhu.library.widget.custom.ColorArcProgressBar
+            android:id="@+id/colorArcProgress"
+            android:layout_width="@dimen/DIMEN_SIZE_180DP"
+            android:layout_height="@dimen/DIMEN_SIZE_180DP"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:progress="0"
+            android:visibility="gone"
+            app:cpv_innerPadding="8dp"
+            app:cpv_outerColor="@color/red"
+            app:cpv_outerSize="10dp"
+            app:cpv_progressNormalColor="@color/common_color"
+            app:cpv_progressNormalSize="10dp"
+            app:cpv_progressReachColor="@color/red"
+            app:cpv_progressReachSize="10dp"
+            app:cpv_progressStyle="Normal"
+            app:cpv_progressTextSize="@dimen/DIMEN_SIZE_30DP"
+            app:cpv_radius="@dimen/DIMEN_SIZE_80DP" />
+
+
         <ImageView
             android:id="@+id/loadingAnim"
             android:layout_width="wrap_content"

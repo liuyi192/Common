@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.AnimationDrawable;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ import com.xiaozhu.library.utils.ActivityManger;
 import com.xiaozhu.library.utils.AppUtils;
 import com.xiaozhu.library.utils.LogUtil;
 import com.xiaozhu.library.utils.OpenFileUtil;
+import com.xiaozhu.library.widget.custom.ColorArcProgressBar;
 import com.xiaozhu.library.widget.custom.LineProgressBar;
 
 import java.util.Random;
@@ -34,12 +36,13 @@ public class DownloadFileActivity extends BaseActivity {
     private static final String DOWNLOAD_URL = "downloadUrl";
     private static final String DOWNLOAD_FILE_TYPE = "downloadFileType";
     private static final String FINISH_ALL = "finishAll";
-
     private static final String BACKGROUND_INSTALL = "backgroundInstall";
+    private static final String LOADING_ANIM = "loadingAnim";
 
     private LineProgressBar progress;
     private ImageView loadingAnim;
     private TextView tvDownload;
+    private ColorArcProgressBar colorArcProgress;
 
     /**
      * 跳转到下载
@@ -51,15 +54,15 @@ public class DownloadFileActivity extends BaseActivity {
         startDownload(context, downloadUrl, fileType, false);
     }
 
+
     /**
      * 跳转到下载
      *
      * @param context
      * @param downloadUrl 下载地址
-     * @param finishAll   是否关闭全部界面
      */
-    public static void startDownload(Context context, String downloadUrl, int fileType, boolean finishAll) {
-        startDownload(context, downloadUrl, false, fileType, finishAll);
+    public static void startDownloadNotAnim(Context context, String downloadUrl, int fileType) {
+        startDownload(context, downloadUrl, fileType, false, false);
     }
 
     /**
@@ -69,12 +72,35 @@ public class DownloadFileActivity extends BaseActivity {
      * @param downloadUrl 下载地址
      * @param finishAll   是否关闭全部界面
      */
-    public static void startDownload(Context context, String downloadUrl, boolean backgroundInstall, int fileType, boolean finishAll) {
+    public static void startDownload(Context context, String downloadUrl, int fileType, boolean finishAll) {
+        startDownload(context, downloadUrl, false, fileType, finishAll, true);
+    }
+
+    /**
+     * 跳转到下载
+     *
+     * @param context
+     * @param downloadUrl 下载地址
+     * @param finishAll   是否关闭全部界面
+     */
+    public static void startDownload(Context context, String downloadUrl, int fileType, boolean finishAll, boolean loadingAnim) {
+        startDownload(context, downloadUrl, false, fileType, finishAll, loadingAnim);
+    }
+
+    /**
+     * 跳转到下载
+     *
+     * @param context
+     * @param downloadUrl 下载地址
+     * @param finishAll   是否关闭全部界面
+     */
+    public static void startDownload(Context context, String downloadUrl, boolean backgroundInstall, int fileType, boolean finishAll, boolean loadingAnim) {
         Intent intent = new Intent(context, DownloadFileActivity.class);
         intent.putExtra(DOWNLOAD_URL, downloadUrl);
         intent.putExtra(FINISH_ALL, finishAll);
         intent.putExtra(DOWNLOAD_FILE_TYPE, fileType);
         intent.putExtra(BACKGROUND_INSTALL, backgroundInstall);
+        intent.putExtra(LOADING_ANIM, loadingAnim);
         context.startActivity(intent);
     }
 
@@ -84,9 +110,19 @@ public class DownloadFileActivity extends BaseActivity {
         progress = this.findViewById(R.id.progress);
         tvDownload = this.findViewById(R.id.tvDownload);
         progress.setMaxProgress(100);
+        colorArcProgress.setMax(100);
         if (loadingAnim != null && loadingAnim.getBackground() instanceof AnimationDrawable) {
             AnimationDrawable animation = (AnimationDrawable) loadingAnim.getBackground();
             animation.start();
+        }
+        if (getIntent().getBooleanExtra(LOADING_ANIM, true)) {
+            colorArcProgress.setVisibility(View.GONE);
+            loadingAnim.setVisibility(View.VISIBLE);
+            progress.setVisibility(View.VISIBLE);
+        } else {
+            colorArcProgress.setVisibility(View.VISIBLE);
+            loadingAnim.setVisibility(View.GONE);
+            progress.setVisibility(View.GONE);
         }
     }
 
@@ -138,6 +174,7 @@ public class DownloadFileActivity extends BaseActivity {
             if (DownloadService.ACTION_UPDATE.equals(intent.getAction())) {
                 int finished = intent.getIntExtra("finished", 0);
                 progress.setCurProgress(finished);
+                colorArcProgress.setProgress(finished);
                 if (finished == 100) {
                     tvDownload.setText(R.string.download_complete);
                     String path = intent.getStringExtra("filePath");
