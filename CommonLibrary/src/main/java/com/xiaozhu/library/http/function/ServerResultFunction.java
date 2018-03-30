@@ -28,7 +28,7 @@ public class ServerResultFunction implements Function<HttpResponse, Object> {
         }
         JSONObject jsonObject = new JSONObject(new Gson().toJson(response.getData()));
         jsonObject.put("isLastPage", response.isLastPage());
-        LogUtil.i("===>>>>");
-        return GsonUtils.beanToJson(jsonObject);
+        LogUtil.i("===>>>>" + jsonObject.toString());
+        return jsonObject.toString();
     }
 }
