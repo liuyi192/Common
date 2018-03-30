@@ -4,6 +4,9 @@ import com.google.gson.Gson;
 import com.xiaozhu.library.http.exception.HttpError;
 import com.xiaozhu.library.http.exception.ServerException;
 import com.xiaozhu.library.http.retrofit.HttpResponse;
+import com.xiaozhu.library.utils.GsonUtils;
+
+import org.json.JSONObject;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
@@ -22,6 +25,8 @@ public class ServerResultFunction implements Function<HttpResponse, Object> {
         if (!response.isSuccess()) {
             throw new ServerException(HttpError.HTTP_EXCEPTION.getType(), response.getMsg());
         }
-        return new Gson().toJson(response.getData());
+        JSONObject jsonObject = new JSONObject(new Gson().toJson(response.getData()));
+        jsonObject.put("isLastPage", response.isLastPage());
+        return GsonUtils.beanToJson(jsonObject);
     }
 }

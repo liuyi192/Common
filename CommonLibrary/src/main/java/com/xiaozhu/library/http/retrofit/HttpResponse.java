@@ -19,6 +19,8 @@ public class HttpResponse<T> {
     private T data;
     @SerializedName("msg")
     private String msg;
+    @SerializedName("isLastPage")
+    private boolean isLastPage;
 
     public boolean isSuccess() {
         return success;
@@ -51,5 +53,13 @@ public class HttpResponse<T> {
                 ", data=" + (new Gson().toJson(data)) +
                 ", msg='" + msg + '\'' +
                 '}';
+    }
+
+    public boolean isLastPage() {
+        return isLastPage;
+    }
+
+    public void setLastPage(boolean lastPage) {
+        isLastPage = lastPage;
     }
 }

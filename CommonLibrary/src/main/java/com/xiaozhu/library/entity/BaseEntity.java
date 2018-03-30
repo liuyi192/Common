@@ -11,5 +11,13 @@ import java.io.Serializable;
  * @备注
  */
 public class BaseEntity implements Serializable {
+    private boolean isLastPage;
 
+    public boolean isLastPage() {
+        return isLastPage;
+    }
+
+    public void setLastPage(boolean lastPage) {
+        isLastPage = lastPage;
+    }
 }
