@@ -109,6 +109,7 @@ public class DownloadFileActivity extends BaseActivity {
         loadingAnim = this.findViewById(R.id.loadingAnim);
         progress = this.findViewById(R.id.progress);
         tvDownload = this.findViewById(R.id.tvDownload);
+        colorArcProgress = this.findViewById(R.id.colorArcProgress);
         progress.setMaxProgress(100);
         colorArcProgress.setMax(100);
         if (loadingAnim != null && loadingAnim.getBackground() instanceof AnimationDrawable) {
