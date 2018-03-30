@@ -188,6 +188,8 @@ public class DownloadFileActivity extends BaseActivity {
                         } else {
                             startActivity(OpenFileUtil.getApkFileIntent(path));
                         }
+                    } else {
+                        startActivity(OpenFileUtil.openFile(context, path));
                     }
                     finish();
                 }
