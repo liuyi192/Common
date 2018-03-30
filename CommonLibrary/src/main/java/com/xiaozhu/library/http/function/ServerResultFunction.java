@@ -5,6 +5,7 @@ import com.xiaozhu.library.http.exception.HttpError;
 import com.xiaozhu.library.http.exception.ServerException;
 import com.xiaozhu.library.http.retrofit.HttpResponse;
 import com.xiaozhu.library.utils.GsonUtils;
+import com.xiaozhu.library.utils.LogUtil;
 
 import org.json.JSONObject;
 
@@ -27,6 +28,7 @@ public class ServerResultFunction implements Function<HttpResponse, Object> {
         }
         JSONObject jsonObject = new JSONObject(new Gson().toJson(response.getData()));
         jsonObject.put("isLastPage", response.isLastPage());
+        LogUtil.i("===>>>>");
         return GsonUtils.beanToJson(jsonObject);
     }
 }
